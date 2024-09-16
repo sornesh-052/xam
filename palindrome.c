@@ -1,49 +1,25 @@
-#include<stdio.h> 
-#include<string.h> 
-void main()
-{
-char s[100];
-int i,flag,flag1,a,b;
-int l;
-printf("enter a string to check:"); 
-scanf("%s",s);
-l=strlen(s); 
-flag=1; 
-for(i=0;i<l;i++)
-{
-if(s[i]!='0' && s[i]!='1')
-{
-flag=0;
-}
-}
-if(flag!=1)
-printf("string is Not Valid\n"); 
-if(flag==1)
-{
-flag1=1; 
-a=0;
-b=l-1; 
-while(a!=(l/2))
-{
-if(s[a]!=s[b])
-{
-flag1=0;
-}
-a=a+1; 
-b=b-1;
-}
-if (flag1==1)
-{
- printf("The string is a palindrome\n"); 
- printf("string is accepted\n");
+#include <stdio.h>
 
-}
-else
-{
-printf("The string is not a palindrome\n"); 
-printf("string is Not accepted\n");
-}
-}
-}
- 
+int main() {
+   char string[100];
+   int i, length, flag = 0;
 
+   printf("Enter a string: ");
+   gets(string);
+
+   for(length = 0; string[length] != '\0'; length++);
+
+   for(i=0; i<length/2; i++) {
+      if(string[i] != string[length-i-1]) {
+         flag = 1;
+         break;
+      }
+   }
+
+   if(flag == 0)
+      printf("%s is a palindrome string.\n", string);
+   else
+      printf("%s is not a palindrome string.\n", string);
+
+   return 0;
+}
